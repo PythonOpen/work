@@ -1,3 +1,5 @@
+import requests
+import re
 '''
 利用正则来爬去猫眼电影
 1. url: http://maoyan.com/board
@@ -17,11 +19,6 @@
 3. 对每一个dd，进行单独信息提取
 '''
 
-
-from urllib import request
-import requests
-import re
-
 # 1 下载页面内容
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36",
@@ -36,10 +33,10 @@ html = rsp.text
 
 # print(html)
 
-# '.'匹配所有除/n的任何字符
+# '.'匹配所有除\n,\r的任何字符
 s = r'<dd>(.*?)</dd>'
 
-# re.S表示匹配包括整个字符串包括/n
+# re.S表示匹配包括整个字符串包括
 pattern = re.compile(s, re.S)
 
 films = pattern.findall(html)

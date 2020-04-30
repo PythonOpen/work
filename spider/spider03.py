@@ -1,15 +1,14 @@
+from urllib import request, parse
+from http import cookiejar
+import ssl
+
 '''
 登录开心网
 利用cookie
 免除ssl
 '''
-
-
-from urllib import request, parse
-import ssl
 # 忽略安全问题
 ssl._create_default_https_context = ssl._create_unverified_context
-from http import cookiejar
 cookie = cookiejar.CookieJar()
 cookie_handler = request.HTTPCookieProcessor(cookie)
 http_handler = request.HTTPHandler()

@@ -24,9 +24,11 @@ if __name__ == "__main__":
         rsp = request.urlopen(url)
         html = rsp.read().decode("utf-8")
         print(url)
-        print(html)
+        # 'a'表示可往文件追加内容
+        with open('spider.html', 'a', encoding='utf-8')as f:
+            f.write(html+"\n"+"="*20)
 
-    add(data={'a': 1, 'b': 4, 'c': 5})
-
-    add(city='beijing', age=10)
+    # add(data={'a': 1, 'b': 4, 'c': 5})
+    #
+    # add(city='beijing', age=10)
 

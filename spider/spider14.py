@@ -18,15 +18,12 @@ def login():
     """
 
     # 1. 需要找到登录入口
-    url = "http://date.jobbole.com/wp-login.php"
+    url = "https://security.kaixin001.com/login/login_post.php"
 
     # 2. 准备登录数据
     data = {
-        "log": "augsnano",
-        "pwd": "123456789",
-        # 登陆后重定向地址
-        "redirect_to": "http://date.jobbole.com/4965/",
-        "rememberme": "on"
+        "email": "13119144223",
+        "password": "123456"
     }
 
     data = parse.urlencode(data).encode()
@@ -37,8 +34,8 @@ def login():
 
     # 4. 准备请求头信息
     headers = {
+        "Context-Length": len(data),
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.119 Safari/537.36",
-        "Connection": "keep-alive",
     }
 
     # 5. 准备cookie hanlder
@@ -67,7 +64,7 @@ def login():
 
 def getInfo():
     # 1. 确定url
-    url = "http://date.jobbole.com/wp-admin/admin-ajax.php"
+    url = "http://www.kaixin001.com/home/?_profileuid=181697221"
 
     # 2. 读取已经保存的cookie
     f = r'jobbole_cookie.txt'
@@ -80,16 +77,6 @@ def getInfo():
     # 4. 构建opener
     opener = request.build_opener(http_handler)
 
-    # 以下是准备请求对象的过程
-
-    # 5. 构建data
-    data = {
-        "action": "get_date_contact",
-        "postId": "4965"
-    }
-
-    data = parse.urlencode(data).encode()
-
     # 6. 构建请求头
     headers = {
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.119 Safari/537.36",
@@ -97,18 +84,16 @@ def getInfo():
     }
 
     # 7. 构建请求实体
-    req = request.Request(url, data=data, headers=headers)
+    req = request.Request(url, headers=headers)
 
     # 8. 用opener打开
     try:
         rsp = opener.open(req)
         html = rsp.read().decode()
-        # 返回json格式
-        html = json.loads(html)
         print(html)
 
         f = "rsp.html"
-        with open(f, 'w') as f:
+        with open(f, 'w', encoding='utf-8') as f:
             f.write(html)
 
     except Exception as e:

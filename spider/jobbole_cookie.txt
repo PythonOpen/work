@@ -2,4 +2,11 @@
 # http://curl.haxx.se/rfc/cookie_spec.html
 # This is a generated file!  Do not edit.
 
-date.jobbole.com	FALSE	/	FALSE	1579104863	security_session_verify	0d93ce87ab805471ec4c021aae0e56de
+.kaixin001.com	TRUE	/	FALSE	1619773605	_email	13119144223
+.kaixin001.com	TRUE	/	FALSE	1619773605	_laid	0
+.kaixin001.com	TRUE	/	FALSE	1590829605	_preemail	13119144223
+.kaixin001.com	TRUE	/	FALSE		_ref	5eaa9525840f0
+.kaixin001.com	TRUE	/	FALSE		_sso	181697221
+.kaixin001.com	TRUE	/	FALSE		_uid	181697221
+.kaixin001.com	TRUE	/	FALSE		_user	c9e68e5dfc76e81243bc984bdda11438_181697221_1588237605
+www.kaixin001.com	FALSE	/	FALSE		SERVERID	_srv80-67_

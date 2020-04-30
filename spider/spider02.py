@@ -11,7 +11,7 @@
 
 
 from urllib import request, error
-
+import random
 
 # 使用代理步骤
 # 1. 设置代理地址
@@ -33,7 +33,6 @@ for proxy_handler in proxy_handler_list:
     opener = request.build_opener(proxy_handler)
     opener_list.append(opener)
 
-import random
 url = "http://www.baidu.com"
 try:
     opener = random.choice(opener_list)
@@ -47,18 +46,18 @@ except Exception as e:
     print(e)
 
 
-def a(func, d, c, x, y):
-    func(x, y)
-    d(x, y)
-    c(x, y)
+# def a(func, d, c, x, y):
+#     func(x, y)
+#     d(x, y)
+#     c(x, y)
+#
+#
+# def k(x, y):
+#     print("func", x, y)
 
 
-def k(x, y):
-    print("func", x, y)
-
-
-if __name__ == '__main__':
-    a(k, k, k, 'a', 'b')
+# if __name__ == '__main__':
+#     a(k, k, k, 'a', 'b')
 
 
 
