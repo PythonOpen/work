@@ -1,12 +1,12 @@
 import scrapy
-
-#导入需要的item
+# 导入需要的item
 from scrapy02.items import MeijuItem
 
 
 # 用来定义spider
-class MeijuSpider(scrapy.Spider):
 
+
+class MeijuSpider(scrapy.Spider):
     name = "meiju"
     start_urls = ['https://www.meijutt.tv/new100.html']
 
@@ -25,7 +25,7 @@ class MeijuSpider(scrapy.Spider):
         times = response.xpath('//div[@class="lasted-time new100time fn-right"]')
         i = 0
 
-        for movie, state, tv, time in zip(movies, states , tvs, times):
+        for movie, state, tv, time in zip(movies, states, tvs, times):
             '''
             每个movie都需要换成一个item
             '''
@@ -40,11 +40,10 @@ class MeijuSpider(scrapy.Spider):
                 item['tv'] = tv.extract()[0]
             else:
                 item['tv'] = ""
-            if i == 1 or i == 2:
+            if 1 <= i <= 11:
                 item['time'] = time.xpath('./font/text()').extract()[0]
             else:
                 item['time'] = time.xpath('./text()').extract()[0]
             # 处理继续爬取的链接
             # 通过得到当前页，提取数字，把数字加10，替换原来的数字，就是下一页的地址
             yield item
-

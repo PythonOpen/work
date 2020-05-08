@@ -37,13 +37,13 @@ class QQSpider(scrapy.Spider):
 
             # 处理继续爬取的链接
             # 通过得到当前页，提取数字，把数据加1，替换原来的数字，就是下一个页面信息
-            # curpage = re.search('(\d+)\.html\?', response.url).group(0)
-            # curpage = re.search('(\d+)', curpage).group(0)
-            # page = str(int(curpage)+1)+'.html?'
-            # # 生成下一个url
-            # url = re.sub('(\d+)\.html\?', str(page), response.url)
-            # # 注意callback的写法
-            # yield scrapy.Request(url, callback=self.parse)
+            curpage = re.search('(\d+)\.html\?', response.url).group(0)
+            curpage = re.search('(\d+)', curpage).group(0)
+            page = str(int(curpage)+1)+'.html?'
+            # 生成下一个url
+            url = re.sub('(\d+)\.html\?', str(page), response.url)
+            # 注意callback的写法
+            yield scrapy.Request(url, callback=self.parse)
 
             # 将获取的item提交给pipeline
             yield item

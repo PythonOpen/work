@@ -7,10 +7,6 @@
 import pymongo
 from scrapy.conf import settings
 
-class Scrapy05Pipeline(object):
-    def process_item(self, item, spider):
-        return item
-
 
 class QQPipeline(object):
     # 初始化配置数据库
@@ -30,7 +26,7 @@ class QQPipeline(object):
 
         def process_item(self, item, spider):
             postItem = dict(item)
-            # 查到数据库里面
+            # 插到数据库里面
             self.coll.insert(postItem)
             return item
 

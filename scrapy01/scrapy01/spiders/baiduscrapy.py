@@ -12,10 +12,10 @@ class BaiduSpider(scrapy.Spider):
     # 负责分析dowmloader下载得到的结果
     # 重写parse
     def parse(self, response):
-        '''
+        """
         只是保存网页即可
         :param response:
         :return:
-        '''
+        """
         with open('baidu.html', 'w', encoding='utf-8') as f:
             f.write(response.body.decode('utf-8'))

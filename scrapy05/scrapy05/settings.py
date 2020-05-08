@@ -46,7 +46,7 @@ ROBOTSTXT_OBEY = False
 MONGO_HOST = "127.0.0.1"  # 主机
 MONGO_PORT = 27017  # 端口
 MONGO_DB  = "QQ"  # 库名
-MONGO_COLL = "jobs" # collection
+MONGO_COLL = "jobs"  # collection
 MONGO_USER = "xiaofang"
 MONGO_PWD = "pwd123456"
 # Enable or disable spider middlewares

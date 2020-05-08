@@ -105,7 +105,7 @@ class Scrapy04DownloaderMiddleware(object):
 
 import time
 from selenium import webdriver
-from scrapy.http import HtmlResponse # 自定义的返回结果
+from scrapy.http import HtmlResponse  # 自定义的返回结果
 
 
 # 中间件编写

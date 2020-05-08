@@ -13,8 +13,8 @@ class Scrapy02Pipeline(object):
 
 
 class MeijuPipeline(object):
-    def __init__(self):
-        self.file = open('meiju.json', 'wb')
+    # def __init__(self):
+    #     self.file = open('meiju.json', 'wb')
     '''
     此方法必须被实现
     用来具体处理item内容
@@ -22,6 +22,7 @@ class MeijuPipeline(object):
     '''
     def process_item(self, item, spider):
         with open('meiju.json', 'a', encoding='utf-8')as f:
+            # item可直接转换成item
             json.dump(dict(item), f, ensure_ascii=False)
             f.write(',\n')
         return item

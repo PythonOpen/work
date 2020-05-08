@@ -42,8 +42,10 @@ class QQSpider(scrapy.Spider):
             page = str(int(curpage)+1)+'.html?'
             # 生成下一个url
             url = re.sub('(\d+)\.html\?', str(page), response.url)
+            # 把地址通过yield返回
             # 注意callback的写法
-            yield scrapy.Request(url, callback=self.parse)
+            # dont_filter=False去重
+            yield scrapy.Request(url, callback=self.parse, dont_filter=False)
 
             # 将获取的item提交给pipeline
             yield item
