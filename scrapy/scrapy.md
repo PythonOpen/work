@@ -30,6 +30,7 @@
 - 编写pipeline
 - 设置pipeline
 - 中间件，会使用selenium
+- settings设置
 
 # 验证码问题
     - 验证码：防止机器人或者爬虫
